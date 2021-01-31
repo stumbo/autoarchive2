@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://css/protocol/base/elements/_typography.scss" type="text/css"?>
+
+<!DOCTYPE window>
+
+<window id="autoArchiveDialog"
+        xmlns="http://www.mozilla.org/keymaster/gatekeepr/there.is.only.xul"
+        xmlns.html="http://www.w3.org/1999/html"
+        style="...">
+    <link rel="stylesheet" href="css/protocol/base/elements/_typography.scss" type="text/css"/>
+    <link rel="stylesheet" href="css/dialog2.scss" type="text/css"/>
+    <link rel="stylesheet" href="css/index.css" type="text/css"/>
+    <!--script src="resource://autoArchive2/content/scripts/dialog.js"></script -->
+
+    <div class="mzp-l-content mzp-t-narrow">
+        <form class="mzp-c-form">
+            <header class="mzp-c-form-header">
+                <h2 class="mzp-c-form-heading">Rules</h2>
+                <p>Creation and management of archiving rules.
+                </p>
+            </header>
+            <div class="mzp-c-button-container">
+                <button class="mzp-c-button mzp-t-secondary mzp-t-md button-padding">
+                    New
+                </button>
+                <button class="mzp-c-button mzp-t-secondary mzp-t-md button-padding">
+                    Up
+                </button>
+                <button class="mzp-c-button mzp-t-secondary mzp-t-md button-padding">
+                    Down
+                </button>
+
+                <button class="mzp-c-button mzp-t-secondary mzp-t-md">
+                    Run
+                </button>
+                <button class="mzp-c-button mzp-t-secondary mzp-t-md">
+                    Dry Run
+                </button>
+
+            </div>
+            <div class="mzp-u-data-table">
+                <grid class='awsome_auto_archive-center-rows awsome_auto_archive-enable-checked'>
+                    <columns>
+                        <column/><column/><column flex="1"/><column/><column flex="1"/><column flex="1"/><column flex="1"/><column/><column/><column/><column/>
+                    </columns>
+                    <rows id='awsome_auto_archive-rules' preference="extensions.awsome_auto_archive.rules" preference-editable="true" onsyncfrompreference='return autoArchivePrefDialog.syncFromPerf(window);'>
+                    </rows>
+                </grid>
+
+                <table>
+                    <tr>
+                        <th>Enabled</th>
+                        <th>Action</th>
+                        <th>Source Folder</th>
+                        <th>Scope</th>
+                        <th>Destination Folder</th>
+                        <th>From</th>
+                        <th>Subject</th>
+                        <th>Age</th>
+                    </tr>
+                    <tr>
+                        <td>button</td>
+                        <td>pull down menu</td>
+                        <td>pull down menu</td>
+                        <td>pull down menu</td>
+                        <td>pull down menu</td>
+                        <td>type in field</td>
+                        <td>type in field</td>
+                        <td>integer with up - down arrows</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <div class="mzp-c-field mzp-l-stretch">
+                <label class="mzp-c-field-label"
+                       for="fxa-email-field">Field label</label>
+                <input class="mzp-c-field-control " type="email"
+                       id="fxa-email-field"> </input>
+
+                <p class="mzp-c-field-info">Info to accompany the
+                    input field</p>
+            </div>
+            <footer class="mzp-c-form-footer">
+                <div class="mzp-c-button-container">
+                    <button type="submit"
+                            class="mzp-c-button mzp-t-primary mzp-t-product"
+                            id="auto-archive-form-submit" data-cta-type="fxa-sync"
+                            data-cta-text="Register"
+                            data-cta-position="primary">
+                        OK
+                    </button>
+                    <button type="reset"
+                            class="mzp-c-button mzp-t-secondary mzp-t-product"
+                            id="auto-archive-form-cancel" data-cta-type="fxa-sync"
+                            data-cta-text="Register"
+                            data-cta-position="secondary">
+                        Cancel
+                    </button>
+                    <p class="mzp-c-button-info">
+                        Small details to accompany the button
+                    </p>
+                </div>
+            </footer>
+        </form>
+    </div>
+</window>
+

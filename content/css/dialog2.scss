@@ -1,0 +1,11 @@
+@import 'protocol/base/elements/_forms.scss';
+@import 'protocol/components/_button.scss';
+
+.button-padding {
+    align-content: space-between;
+}
+
+.action-buttons {
+    align-content: flex-end;
+
+}
