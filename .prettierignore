@@ -1,0 +1,3 @@
+/src/popup/libs/**/*.css
+/src/popup/libs/**/*.js
+/src/popup/libs/**/*.ts
