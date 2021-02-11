@@ -1,13 +1,19 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { ArchiveManuallyMessageRequest } from "../sharedAll/Messages";
 import { GetArchiveStatusMessageRequest } from "../sharedAll/Messages";
+import { log } from "../sharedWebExtension/Logger";
+import { AppInfoLogger } from "./AppInfoLogger";
+import { LogLevelInfoWebExtension } from "../sharedWebExtension/Logger";
 
-function startup(): void {
+async function startup(): Promise<void> {
   try {
     browser.runtime.onMessage.addListener(handleMessage);
+    LogLevelInfoWebExtension.setGlobaleEnableInfoLogging(true);
+    const appInfoLogger = new AppInfoLogger();
+    await appInfoLogger.log();
+    log.info("log file initialized");
   } catch (e) {
-    //log.exception(e);
-    console.log(e);
+    log.error(e);
   }
 }
 
@@ -23,17 +29,17 @@ function handleMessage(
           accounts: mailAccounts.length,
           folders: mailAccounts[0].folders.length,
         };
-        console.log(message);
+        log.info(message.toString());
         for (const mailAccount of mailAccounts) {
-          console.log("id: " + mailAccount.id);
-          console.log("name: " + mailAccount.name);
-          console.log("type: " + mailAccount.type);
-          console.log("Folders :");
+          log.info("id: " + mailAccount.id);
+          log.info("name: " + mailAccount.name);
+          log.info("type: " + mailAccount.type);
+          log.info("Folders :");
           for (const folder of mailAccount.folders) {
-            console.log("  path: " + folder.path);
-            console.log("  name: " + folder.name);
-            console.log("  type: " + folder.type);
-            console.log(" ----- ");
+            log.info("  path: " + folder.path);
+            log.info("  name: " + folder.name);
+            log.info("  type: " + folder.type);
+            log.info(" ----- ");
           }
         }
       });
