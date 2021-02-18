@@ -6,34 +6,34 @@ const path = require("path");
 const outputPath = path.resolve(__dirname, "./dist/release/");
 
 const tsLoaderRules = [
-	{
-		test: /\.tsx?$/,
-		use: "ts-loader",
-		exclude: /node_modules/,
-	},
+  {
+    test: /\.tsx?$/,
+    use: "ts-loader",
+    exclude: /node_modules/,
+  },
 ];
 const extensions = [".tsx", ".ts", ".js"];
 
 module.exports = [
-	{
-		name: "webextension", //all "standard" webextension scripts
-		mode: theMode,
-		entry: {
-			background: "./src/background/background.ts",
-//			options: "./src/options/options.ts",
-			popup: "./src/popup/popup.ts",
-		},
-		output: {
-			path: outputPath,
-		},
-		module: {
-			rules: tsLoaderRules,
-		},
-		resolve: {
-			extensions: extensions,
-		},
-	},
-	/*
+  {
+    name: "webextension", //all "standard" webextension scripts
+    mode: theMode,
+    entry: {
+      background: "./src/background/background.ts",
+      options: "./src/options/options.ts",
+      popup: "./src/popup/popup.ts",
+    },
+    output: {
+      path: outputPath,
+    },
+    module: {
+      rules: tsLoaderRules,
+    },
+    resolve: {
+      extensions: extensions,
+    },
+  },
+  /*
 	 *  Let's see if we really need this before we delete it.
 	{
 		//the experiment needs a slightly different output configuration
@@ -56,7 +56,7 @@ module.exports = [
 		},
 	},
 	 */
-	/*
+  /*
 	 * Tests would be good...
 	{
 		//Tests will be created in a different dir
