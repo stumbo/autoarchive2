@@ -97,12 +97,12 @@ Copyright 2018-2020 Brummolix (AutoarchiveReloaded, https://github.com/Brummolix
 						__MSG_globalSettingsDescription__
 					</div>
 				</div>
-				<div id="advanced" class="tab-pane fade show card-body" role="tabpanel"
+				<div id="advanced" class="tab-pane fade show active card-body" role="tabpanel"
 					aria-labelledby="advanced-tab">
 					<!-- Editable table -->
 					<div class="card">
 						<h3 class="card-header text-center font-weight-bold text-uppercase py-4">
-							Advanced Auto ARchive Rules
+							Advanced Auto Archive Rules
 						</h3>
 						<div class="card-body">
 							<div id="table" class="table-editable">

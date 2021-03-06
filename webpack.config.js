@@ -14,67 +14,21 @@ const tsLoaderRules = [
 ];
 const extensions = [".tsx", ".ts", ".js"];
 
-module.exports = [
-  {
+module.exports = {
     name: "webextension", //all "standard" webextension scripts
     mode: theMode,
     entry: {
-      background: "./src/background/background.ts",
-      options: "./src/options/options.ts",
-      popup: "./src/popup/popup.ts",
+      background: "./src/app/background/background.ts",
+      options: "./src/app/options/options.ts",
+      popup: "./src/app/popup/popup.ts",
     },
     output: {
       path: outputPath,
     },
     module: {
-      rules: tsLoaderRules,
+      rules:  tsLoaderRules,
     },
     resolve: {
       extensions: extensions,
     },
-  },
-  /*
-	 *  Let's see if we really need this before we delete it.
-	{
-		//the experiment needs a slightly different output configuration
-		name: "experiment",
-		mode: theMode,
-		entry: "./src/webexperiment/autoarchive-api.ts",
-		output: {
-			filename: "autoarchive-api.js",
-			path: outputPath,
-
-			//export the default class under the variable "autoarchive"!
-			library: "autoarchive",
-			libraryExport: "default",
-		},
-		module: {
-			rules: tsLoaderRules,
-		},
-		resolve: {
-			extensions: extensions,
-		},
-	},
-	 */
-  /*
-	 * Tests would be good...
-	{
-		//Tests will be created in a different dir
-		name: "tests", //all "tests"
-		mode: theMode,
-		entry: {
-			test: "./src/alltests.js",
-		},
-		module: {
-			rules: tsLoaderRules,
-		},
-		resolve: {
-			extensions: extensions,
-			fallback: {
-				assert: require.resolve("assert/"),
-			},
-		},
-	},
-
-	 */
-];
+  };

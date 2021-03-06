@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../src/app/popup/popup.css"/>
+    <title>Auto Archive Preferences</title>
+    <script src="resource://autoArchive2/content/scripts/dialog.js"></script>
+</head>
+<body>
+<div id="autoArchiveRoot">
+    <div>
+
+    </div>
+    <vbox id="autoArchiveDialogTabs-container" flex="1">
+        <tabpanel id="aaTabPanelContainer" class="plain" flex="1" selectedIndex="1">
+
+        </tabpanel>
+    </vbox>
+</div>
+<form title="Auto Archive Preferences">
+        <header class="panel-section panel-section-header">
+            <div class = "text-section-header">Rules:</div>
+        </header>
+            <button class="browser-style" id="newRule">New</button>
+            <button id="moveRuleUp">Up</button>
+            <button id="moveRuleDown">Down</button>
+            <button id="revertAllRules">Revert All</button>
+            <button id="loadRules">Load</button>
+    <div class="panel-section-separator"></div>
+        <footer class="panel-section panel-section-footer">
+            <button class="panel-section-footer-button">Cancel</button>
+            <div class="panel-section-footer-separator"></div>
+            <button class="panel-section-footer-button default">Confirm</button>
+        </footer>
+
+    <div class="panel">
+        <div class="text-section-header">Section 2</div>
+    </div>
+
+</form>
+</body>
+<script src = "scripts/dialog.js"></script>
+</htmL>
+
+<output aria-live="polite"></output>
+

@@ -24,6 +24,7 @@ import { AccountInfoProvider } from "../sharedWebExtension/AccountInfo";
 import { log } from "../sharedWebExtension/Logger";
 import { OptionHelper } from "../sharedWebExtension/optionHelper";
 import { AccountInfos } from "./AccountInfos";
+import { } from "@angular/elements";
 
 async function saveOptions(): Promise<void> {
   try {

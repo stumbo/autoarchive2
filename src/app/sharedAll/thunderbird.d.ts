@@ -33,8 +33,7 @@ declare class RuntimeMessageSender {}
 
 //https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage
 type RuntimeMessageResponseFunction = (
-  response: import("./Messages").GetArchiveStatusResponse | null
-) => void;
+  response: import("./Messages").GetArchiveStatusResponse | null) => void;
 type RuntimeMessageListener = (
   message:
     | import("./Messages").GetArchiveStatusMessageRequest
@@ -279,13 +278,7 @@ declare interface Messages {
   //delete(messageIds: number[], ?skipTrash:boolean); //return type?
   archive(messageIds: number[]): Promise<void>;
 }
-/*
-declare interface AutoarchiveWebExperiment {
-	// tslint:disable-next-line: array-type
-	askForLegacyPreferences(accounts: import("../sharedAll/interfaces").AccountInfo[]): import("../sharedAll/interfaces").Settings | null;
-	setInfoLogging(value: boolean): void;
-}
- */
+/* eslint-disable-next-line @typescript-eslint/array-type */
 
 type ContextType =
   | "all"

@@ -19,7 +19,7 @@ Copyright 2012 Alexey Egorov (original version Autoarchive, http://code.google.c
 */
 
 import { AccountInfo } from "../sharedAll/interfaces";
-import { log } from "../sharedWebExtension/Logger";
+import { log } from "./Logger";
 import { AccountIterator } from "./AccountIterator";
 
 export class AccountInfoProvider {
