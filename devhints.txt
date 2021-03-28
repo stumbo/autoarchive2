@@ -1,0 +1,39 @@
+Development hints:
+
+- typescript is used to translate files to javascript
+- npm is used to install needed dependencies
+- grunt is used to build everything
+- Visual Studio Code can be used for editing
+
+- how to install?
+	- install Visual Studio code
+	- install some special build tools (windows only, installs Visual Studio Build and Python)
+		(I think with the current node installer this step is no longer needed, as the installer installs the build tools if you tick the checkbox at install)
+		- open elevated shell/powershell
+		- run "npm install --global --production windows-build-tools"
+			(this is needed for the node-gyp package which is needed by the grunt-contrib-compress package which is needed for the grunt build
+			see also https://github.com/nodejs/node-gyp)
+	- install needed node packages
+		- open shell at project dir or open terminal in visual studio code
+		- run "npm install"
+		- if this fails on windows because of node-gyp then you should again use an elevated terminal (because the install of grunt-contrib-compress will build something on the fly with Visual Studio build)
+	- now you should be able to build with grunt and/or visual studio code
+
+- how to install a new npm/grunt module?
+	npm install MODULENAME --save-dev
+		- it will refresh package.json und package-lock.json
+		- it will install the module under node_modules (which is excluded from git)
+
+- module system
+	Typescript code uses import/export statements
+	The code is translated from typescript to Js and then packed with webpack to single js files including all needed modules.
+- directory structure
+	src/sharedAll - contains sources used by *all* scripts
+	src/sharedWebextension - contains all sources used by the webextension scripts
+	src/options - contains the sources for the option page
+		uses sharedAll and sharedWebextension
+	src/backgroundScript - contains the sources for the backgroundScript
+		uses sharedAll and sharedWebextension
+	src/webexperiment - contains the sources for the webexperiment API (stuff which is not yet supported by the webextension api)
+		uses sharedAll
+	src/resources - contains all files that are needed additionally

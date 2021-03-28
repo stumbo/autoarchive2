@@ -43,6 +43,12 @@ applications.
 
 - Continue fleshing out the basic archive application.
   - Build Options window
+  
+2021-02-27: Moved to angular.  Need to rework dialog boxes and remove references to JQuery.
+
+2021-03-06:  Rebuilt and running with Angular.  Loads up in Thunderbird.  Base infrastructure appears to be up and 
+working.
+
 
 ---
 

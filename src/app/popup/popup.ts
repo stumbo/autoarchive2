@@ -10,6 +10,6 @@ export class Popup {
     // start an archive operation
   }
   options(): void {
-    // call the option menu`
+    // call the option menu
   }
 }
