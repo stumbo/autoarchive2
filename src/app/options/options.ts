@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import {advancedTab} from "./advanced/advancedTab";
 
 @Component( {
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core'
   styleUrls: ['./options.css']
 })
 export class Options {
-  title = 'Auto Archive Settings'
+  title = 'Auto Archive Settings and more...'
 }

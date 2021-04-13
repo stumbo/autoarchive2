@@ -3,14 +3,13 @@ aria-labelledby="advanced-tab">
 <!-- Editable table -->
 <div class="card">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
-        Advanced Auto ARchive Rules
+        Advanced Auto Archive Rules
     </h3>
     <div class="card-body">
         <div id="table" class="table-editable">
             <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
                         class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
             <table class="table table-bordered table-responsive-md table-striped text-center">
-                <thead>
                     <tr>
                         <th class="text-center">Active</th>
                         <th class="text-center">Action</th>
@@ -23,44 +22,49 @@ aria-labelledby="advanced-tab">
                         <th class="text-center">Sort</th>
                         <th class="text-center">Remove</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="form-check">
-                            <input type="checkbox" class="form-check-input"
-                                id="tableMaterialCheck1" />
-                        </td>
-                        <td class="pt-3-half" contenteditable="true">
-                            Action Value
-                        </td>
-                        <td class="pt-3-half" contenteditable="true">
-                            Source Folder
-                        </td>
-                        <td class="pt-3-half" contenteditable="true">Scope</td>
-                        <td class="pt-3-half" contenteditable="true">
-                            Destination
-                        </td>
-                        <td class="pt-3-half" contenteditable="true">From</td>
-                        <td class="pt-3-half" contenteditable="true">
-                            Subject
-                        </td>
-                        <td class="pt-3-half" contenteditable="true">Age</td>
-                        <td class="pt-3-half">
-                            <span class="table-up"><a href="#!" class="indigo-text"><i
-                                        class="fas fa-long-arrow-alt-up"
-                                        aria-hidden="true"></i></a></span>
-                            <span class="table-down"><a href="#!" class="indigo-text"><i
-                                        class="fas fa-long-arrow-alt-down"
-                                        aria-hidden="true"></i></a></span>
-                        </td>
-                        <td>
-                            <span class="table-remove"><button type="button"
-                                    class="btn btn-danger btn-rounded btn-sm my-0">
-                                    Remove
-                                </button></span>
-                        </td>
+                    <tr *ngFor="let rule of ruleList; let id = index">
+                      <td>
+                        <span contenteditable="true" (keyup)="changeValue(id, 'active', $event)" (blur)="updateList(id, 'active', $event)">{{rule.active}}</span>
+                      </td>
+                      <td>
+                        <span contenteditable="true" (keyup)="changeValue(id, 'action', $event)" (blur)="updateList(id, 'action', $event)">{{rule.action}}</span>
+                      </td>
+                      <td>
+                        <span contenteditable="true" (keyup)="changeValue(id, 'srcFolder', $event)" (blur)="updateList(id, 'srcFolder', $event)">{{rule.srcFolder}}</span>
+                      </td>
+                      <td>
+                        <span contenteditable="true" (keyup)="changeValue(id, 'scope', $event)" (blur)="updateList(id, 'scope', $event)">{{rule.scope}}</span>
+                      </td>
+                      <td>
+                        <span contenteditable="true" (keyup)="changeValue(id, 'dstnFolder', $event)" (blur)="updateList(id, 'dstnFolder', $event)">{{rule.dstnFolder}}</span>
+                      </td>
+                      <td>
+                        <span contenteditable="true" (keyup)="changeValue(id, 'from', $event)" (blur)="updateList(id, 'from', $event)">{{rule.from}}</span>
+                      </td>
+                      <td>
+                        <span contenteditable="true" (keyup)="changeValue(id, 'subject', $event)" (blur)="updateList(id, 'subject', $event)">{{rule.subject}}</span>
+                      </td>
+                      <td>
+                        <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{rule.age}}</span>
+                      </td>
+                      <td>
+                        <span class="table-up">
+                          <a class="indigo-text">
+                            <mdb-icon fas icon="long-arrow-alt-up"></mdb-icon>
+                          </a>
+                        </span>
+                        <span class="table-down">
+                          <a class="indigo-text">
+                            <mdb-icon fas icon="long-arrow-alt-down"></mdb-icon>
+                          </a>
+                        </span>
+                      </td>
+                      <td>
+                        <span class="table-remove">
+                          <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+                        </span>
+                      </td>
                     </tr>
-                </tbody>
             </table>
         </div>
     </div>

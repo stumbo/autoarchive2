@@ -4,14 +4,14 @@ const theMode = "none";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require("path");
 const outputPath = path.resolve(__dirname, "./dist/release/");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const tsLoaderRules = [
+const tsLoaderRules =
   {
     test: /\.tsx?$/,
     use: "ts-loader",
     exclude: /node_modules/,
-  },
-];
+  };
 const extensions = [".tsx", ".ts", ".js"];
 
 module.exports = {
@@ -26,9 +26,21 @@ module.exports = {
       path: outputPath,
     },
     module: {
-      rules:  tsLoaderRules,
+      rules:  [
+        tsLoaderRules,
+        {
+          test: /\.html$/,
+          use: 'html-loader'
+        }
+        ]
     },
     resolve: {
       extensions: extensions,
     },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
+  ]
   };
