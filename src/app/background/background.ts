@@ -1,9 +1,9 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
-import { ArchiveManuallyMessageRequest } from "../sharedAll/Messages";
-import { GetArchiveStatusMessageRequest } from "../sharedAll/Messages";
-import { log } from "../sharedWebExtension/Logger";
-import { AppInfoLogger } from "./AppInfoLogger";
-import { LogLevelInfoWebExtension } from "../sharedWebExtension/Logger";
+import { ArchiveManuallyMessageRequest } from '../sharedAll/Messages';
+import { GetArchiveStatusMessageRequest } from '../sharedAll/Messages';
+import { log } from '../sharedWebExtension/Logger';
+import { AppInfoLogger } from './AppInfoLogger';
+import { LogLevelInfoWebExtension } from '../sharedWebExtension/Logger';
 
 async function startup(): Promise<void> {
   try {
@@ -11,7 +11,7 @@ async function startup(): Promise<void> {
     LogLevelInfoWebExtension.setGlobaleEnableInfoLogging(true);
     const appInfoLogger = new AppInfoLogger();
     await appInfoLogger.log();
-    log.info("log file initialized");
+    log.info('log file initialized');
   } catch (e) {
     log.error(e);
   }
@@ -23,7 +23,7 @@ function handleMessage(
   sendResponse: RuntimeMessageResponseFunction
 ): void {
   switch (request.message) {
-    case "archiveManually": {
+    case 'archiveManually': {
       void browser.accounts.list().then((mailAccounts) => {
         const message = {
           accounts: mailAccounts.length,
@@ -31,15 +31,15 @@ function handleMessage(
         };
         log.info(message.toString());
         for (const mailAccount of mailAccounts) {
-          log.info("id: " + mailAccount.id);
-          log.info("name: " + mailAccount.name);
-          log.info("type: " + mailAccount.type);
-          log.info("Folders :");
+          log.info('id: ' + mailAccount.id);
+          log.info('name: ' + mailAccount.name);
+          log.info('type: ' + mailAccount.type);
+          log.info('Folders :');
           for (const folder of mailAccount.folders) {
-            log.info("  path: " + folder.path);
-            log.info("  name: " + folder.name);
-            log.info("  type: " + folder.type);
-            log.info(" ----- ");
+            log.info('  path: ' + folder.path);
+            log.info('  name: ' + folder.name);
+            log.info('  type: ' + folder.type);
+            log.info(' ----- ');
           }
         }
       });

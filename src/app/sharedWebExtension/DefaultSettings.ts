@@ -21,7 +21,7 @@ import {
   AccountSettings,
   GlobalSettings,
   Settings,
-} from "../sharedAll/interfaces";
+} from '../sharedAll/interfaces';
 
 export class DefaultSettings {
   public getDefaultAccountSettings(): AccountSettings {
@@ -46,7 +46,7 @@ export class DefaultSettings {
       partialSettings
     );
 
-    //use defaultSettings for all accounts, too
+    // use defaultSettings for all accounts, too
     for (const accountId in concatedSettings.accountSettings) {
       if (concatedSettings.accountSettings.hasOwnProperty(accountId)) {
         const accountSetting = concatedSettings.accountSettings[accountId];
@@ -76,8 +76,8 @@ export class DefaultSettings {
           any
         >;
         if (elem !== undefined && elem !== null) {
-          //do not use Object.keys here, as TB 64 gives keys also for strings and even numbers
-          if (typeof elem !== "object") {
+          // do not use Object.keys here, as TB 64 gives keys also for strings and even numbers
+          if (typeof elem !== 'object') {
             clone[key] = elem;
           } else {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -99,7 +99,7 @@ export class DefaultSettings {
 
   private getDefaultGlobalSettings(): GlobalSettings {
     return {
-      archiveType: "manual",
+      archiveType: 'manual',
       enableInfoLogging: false,
     };
   }

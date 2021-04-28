@@ -18,8 +18,8 @@ You should have received a copy of the GNU General Public License
 along with AutoarchiveReloaded.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { AccountIterator } from "../sharedWebExtension/AccountIterator";
-import { log } from "../sharedWebExtension/Logger";
+import { AccountIterator } from '../sharedWebExtension/AccountIterator';
+import { log } from '../sharedWebExtension/Logger';
 
 export class AppInfoLogger {
   public async log(): Promise<void> {
@@ -34,32 +34,32 @@ export class AppInfoLogger {
       const browserInfo: BrowserInfo = await browser.runtime.getBrowserInfo();
 
       log.info(
-        "Application: " +
+        'Application: ' +
           browserInfo.vendor +
-          " " +
+          ' ' +
           browserInfo.name +
-          " version " +
+          ' version ' +
           browserInfo.version +
-          " (" +
+          ' (' +
           browserInfo.buildID +
-          ")"
+          ')'
       );
       log.info(
-        "SystemInfo: " +
+        'SystemInfo: ' +
           window.navigator.userAgent +
-          "| " +
+          '| ' +
           window.navigator.platform
       );
-      log.info("Language: " + window.navigator.language);
+      log.info('Language: ' + window.navigator.language);
     } catch (e) {
       log.errorException(e);
-      //don't throw... this method is only info logging...
+      // don't throw... this method is only info logging...
     }
   }
 
   private logAddonInfo(): void {
-    //we could get infos about addons with the browser.management API, but then we would also need the "management" permission
-    //seem to be a bit overdosed only for logging of the information
+    // we could get infos about addons with the browser.management API, but then we would also need the "management" permission
+    // seem to be a bit overdosed only for logging of the information
   }
 
   private async logAccountInfo(): Promise<void> {
@@ -74,7 +74,7 @@ export class AppInfoLogger {
       );
     } catch (e) {
       log.errorException(e);
-      //don't throw... this method is only info logging...
+      // don't throw... this method is only info logging...
     }
   }
 }

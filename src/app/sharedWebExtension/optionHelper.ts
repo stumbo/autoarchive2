@@ -17,22 +17,22 @@ Copyright 2018-2020 Brummolix (AutoarchiveReloaded, https://github.com/Brummolix
     along with AutoarchiveReloaded.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { AccountInfo, Settings } from "../sharedAll/interfaces";
-import { AccountInfoProvider } from "./AccountInfo";
-import { DefaultSettings } from "./DefaultSettings";
-import { log, LogLevelInfoWebExtension } from "./Logger";
+import { AccountInfo, Settings } from '../sharedAll/interfaces';
+import { AccountInfoProvider } from './AccountInfo';
+import { DefaultSettings } from './DefaultSettings';
+import { log, LogLevelInfoWebExtension } from './Logger';
 
 export class OptionHelper {
   public async loadCurrentSettings(): Promise<Settings> {
-    log.info("start to load current settings");
+    log.info('start to load current settings');
 
     const accounts: AccountInfo[] = await AccountInfoProvider.askForAccounts();
 
     try {
-      log.info("got info about accounts");
-      const result = await browser.storage.local.get("settings");
-      //settings read succesfully...
-      log.info("loaded settings from storage");
+      log.info('got info about accounts');
+      const result = await browser.storage.local.get('settings');
+      // settings read succesfully...
+      log.info('loaded settings from storage');
       const oHandling: DefaultSettings = new DefaultSettings();
       const settings: Settings = oHandling.convertPartialSettings(
         result.settings
@@ -45,10 +45,10 @@ export class OptionHelper {
       );
       this.removeOutdatedAccountsFromSettings(settings, accounts);
 
-      log.info("settings mixed with default settings");
+      log.info('settings mixed with default settings');
       return settings;
     } catch (e) {
-      //TODO: do not log and throw!
+      // TODO: do not log and throw!
       log.errorException(e);
       throw e;
     }
@@ -87,12 +87,12 @@ export class OptionHelper {
   public async savePreferencesAndPublishForLogging(
     settings: Settings
   ): Promise<void> {
-    log.info("going to save settings");
+    log.info('going to save settings');
 
     try {
-      //TODO: sometimes we get "Error: WebExtension context not found!", why?
+      // TODO: sometimes we get "Error: WebExtension context not found!", why?
       await browser.storage.local.set({ settings: settings });
-      log.info("settings saved");
+      log.info('settings saved');
       await this.publishCurrentPreferencesForLogging();
     } catch (e) {
       log.errorException(e);
@@ -102,13 +102,13 @@ export class OptionHelper {
 
   private async publishCurrentPreferencesForLogging(): Promise<void> {
     const settings = await this.loadCurrentSettings();
-    log.info("loadCurrentSettings done, publish for logging");
+    log.info('loadCurrentSettings done, publish for logging');
     try {
       LogLevelInfoWebExtension.setGlobaleEnableInfoLogging(
         settings.globalSettings.enableInfoLogging
       );
     } catch (e) {
-      //TODO: do not log and throw?
+      // TODO: do not log and throw?
       log.errorException(e);
       throw e;
     }

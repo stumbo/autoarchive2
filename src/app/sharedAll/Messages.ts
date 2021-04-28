@@ -17,10 +17,10 @@ Copyright 2020 Brummolix (AutoarchiveReloaded, https://github.com/Brummolix/Auto
     along with AutoarchiveReloaded.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { GlobalStates } from "./GlobalStates";
+import { GlobalStates } from './GlobalStates';
 
 export interface GetArchiveStatusMessageRequest {
-  message: "getArchiveStatus";
+  message: 'getArchiveStatus';
 }
 
 export interface GetArchiveStatusResponse {
@@ -28,5 +28,5 @@ export interface GetArchiveStatusResponse {
 }
 
 export interface ArchiveManuallyMessageRequest {
-  message: "archiveManually";
+  message: 'archiveManually';
 }

@@ -17,7 +17,7 @@ Copyright 2018-2020 Brummolix (AutoarchiveReloaded, https://github.com/Brummolix
 	along with AutoarchiveReloaded.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { LogLevelInfo } from "./LogLevelInfo";
+import { LogLevelInfo } from './LogLevelInfo';
 
 enum LogLevel {
   info,
@@ -41,7 +41,7 @@ export class Logger {
 
   public errorException(exception: Error, message?: string): void {
     if (message === undefined) {
-      this.error("Exception occurred");
+      this.error('Exception occurred');
     } else {
       this.error(message);
     }
@@ -66,13 +66,13 @@ export class Logger {
 
   private logEntry(levelToLog: LogLevel, str: string): void {
     const date = new Date();
-    let strToLog = date.toLocaleString() + " - AutoArchive2 - ";
+    let strToLog = date.toLocaleString() + ' - AutoArchive2 - ';
     if (levelToLog === LogLevel.info) {
-      strToLog += "INFO";
+      strToLog += 'INFO';
     } else {
-      strToLog += "ERROR";
+      strToLog += 'ERROR';
     }
-    strToLog += ": " + str;
+    strToLog += ': ' + str;
 
     this.logAny(strToLog);
   }

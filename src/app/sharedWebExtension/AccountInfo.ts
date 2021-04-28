@@ -18,17 +18,17 @@ Copyright 2012 Alexey Egorov (original version Autoarchive, http://code.google.c
     along with AutoarchiveReloaded.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { AccountInfo } from "../sharedAll/interfaces";
-import { log } from "./Logger";
-import { AccountIterator } from "./AccountIterator";
+import { AccountInfo } from '../sharedAll/interfaces';
+import { log } from './Logger';
+import { AccountIterator } from './AccountIterator';
 
 export class AccountInfoProvider {
   public static isMailType(account: MailAccount): boolean {
-    //TODO: Is there still an exquilla type?
+    // TODO: Is there still an exquilla type?
     return (
-      account.type === "pop3" ||
-      account.type === "imap" ||
-      account.type === "exquilla"
+      account.type === 'pop3' ||
+      account.type === 'imap' ||
+      account.type === 'exquilla'
     );
   }
 

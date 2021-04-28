@@ -16,7 +16,7 @@ Copyright 2018-2020 Brummolix (AutoarchiveReloaded, https://github.com/Brummolix
     You should have received a copy of the GNU General Public License
     along with AutoarchiveReloaded.  If not, see <http://www.gnu.org/licenses/>.
 */
-export type ArchiveType = "manual" | "startup";
+export type ArchiveType = 'manual' | 'startup';
 
 export interface GlobalSettings {
   archiveType: ArchiveType;
@@ -41,14 +41,14 @@ export interface AccountSettingsArray {
 export interface Settings {
   globalSettings: GlobalSettings;
 
-  //we do not use a Map because it is not seralized/deserialized with JSON.stringify and therefore also not stored in the local storage
-  //accountSettings: Map<string,IAccountSettings>;
+  // we do not use a Map because it is not seralized/deserialized with JSON.stringify and therefore also not stored in the local storage
+  // accountSettings: Map<string,IAccountSettings>;
 
-  //we could use TSMap from npm module "typescript-map" but it is a pain to use it for a Thunderbird Addon
-  //(the module system does not work with Thunderbird, therefore you had to include it manually and you also had to load it yourself and to even adapt it with EXPORTED_SYMBOLS)
-  //accountSettings: TSMap<string,IAccountSettings>;
+  // we could use TSMap from npm module "typescript-map" but it is a pain to use it for a Thunderbird Addon
+  // (the module system does not work with Thunderbird, therefore you had to include it manually and you also had to load it yourself and to even adapt it with EXPORTED_SYMBOLS)
+  // accountSettings: TSMap<string,IAccountSettings>;
 
-  //therefore we use a plain old object with an associative array
+  // therefore we use a plain old object with an associative array
   accountSettings: AccountSettingsArray;
 }
 
