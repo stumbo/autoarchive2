@@ -97,11 +97,7 @@ module.exports = (grunt) => {
       },
     },
     eslint: {
-      target: [
-        srcDir + "/**/*.ts",
-        srcDir + "/**/*.js",
-        "!src/**/libs/**/*.js",
-      ],
+      target: [srcDir + "/**/*.js", "!src/**/libs/**/*.js"],
     },
   });
 

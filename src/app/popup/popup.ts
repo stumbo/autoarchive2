@@ -1,11 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-@Component( {
+@Component({
   templateUrl: './popup.html',
-  styleUrls: ['./popup.css']
+  styleUrls: ['./popup.css'],
 })
-export class Popup {
-
+export class PopupComponent {
   manualArchive(): void {
     // start an archive operation
   }

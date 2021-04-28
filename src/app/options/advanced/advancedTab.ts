@@ -1,30 +1,54 @@
-import {Component, OnInit} from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'advancedTab',
   templateUrl: './advancedTab.html',
-  styleUrls: ['./advancedTab.css']
+  styleUrls: ['./advancedTab.css'],
 })
-
 export class advancedTab implements OnInit {
   editField: string;
-  ruleList: Array<any> = [
-    {id: 1, active: 'true', action: 'archive', srcFolder: 'inbox', scope: 'global', dstnFolder: 'localFolder/stuff', from: 'here', subject: 'eternity', age: 'young'},
-    {id: 2, active: 'true', action: 'archive', srcFolder: 'send folder', scope: 'global', dstnFolder: 'localFolder/sent', from: 'here', subject: 'eternity', age: 'young'},
-    {id: 3, active: 'true', action: 'archive', srcFolder: 'spam', scope: 'local', dstnFolder: 'localFolder/spam', from: '', subject: '', age: ''},
+  ruleList: any[] = [
+    {
+      id: 1,
+      active: 'true',
+      action: 'archive',
+      srcFolder: 'inbox',
+      scope: 'global',
+      dstnFolder: 'localFolder/stuff',
+      from: 'here',
+      subject: 'eternity',
+      age: 'young',
+    },
+    {
+      id: 2,
+      active: 'true',
+      action: 'archive',
+      srcFolder: 'send folder',
+      scope: 'global',
+      dstnFolder: 'localFolder/sent',
+      from: 'here',
+      subject: 'eternity',
+      age: 'young',
+    },
+    {
+      id: 3,
+      active: 'true',
+      action: 'archive',
+      srcFolder: 'spam',
+      scope: 'local',
+      dstnFolder: 'localFolder/spam',
+      from: '',
+      subject: '',
+      age: '',
+    },
   ];
 
-  newRuleList: Array<any> = [
+  newRuleList: any[] = [];
 
-  ];
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   updateList(id: number, property: string, event: any) {
-    const editField = event.target.textContext;
-    this.ruleList[id][property] = editField;
+    this.ruleList[id][property] = event.target.textContent;
   }
 
   remove(id: any) {
@@ -43,5 +67,4 @@ export class advancedTab implements OnInit {
   changeValue(id: number, property: string, event: any) {
     this.editField = event.target.textContent;
   }
-
 }
