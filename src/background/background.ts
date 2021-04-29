@@ -48,5 +48,5 @@ function handleMessage(
   }
 }
 
-// es-lint-disable-next-line @typescript-eslint/no-floating-promises
+// es-lint-disable-next-line @typescript-eslint
 startup();
