@@ -43,7 +43,7 @@ module.exports = (grunt) => {
           {
             expand: true,
             cwd: "resources/",
-            src: ["**"],
+            src: ["**", "./manifest.json"],
             dest: outDirExtracted,
           },
           {
@@ -97,11 +97,7 @@ module.exports = (grunt) => {
       },
     },
     eslint: {
-      target: [
-        srcDir + "/**/*.ts",
-        srcDir + "/**/*.js",
-        "!src/**/libs/**/*.js",
-      ],
+      target: [srcDir + "/**/*.js", "!src/**/libs/**/*.js"],
     },
   });
 
@@ -119,6 +115,6 @@ module.exports = (grunt) => {
     "webpack",
     "compress",
     "mochaTest",
-    "eslint",
+    //"eslint",
   ]);
 };

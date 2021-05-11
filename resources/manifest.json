@@ -14,7 +14,7 @@
   "browser_action": {
     "default_popup": "popup.html",
     "default_title": "Auto Archive 2",
-    "default_icon": "images/icon.png",
+    "default_icon": "skin/icon.png",
     "browser_style": true
   },
 
@@ -39,9 +39,9 @@
   "default_locale": "en",
 
   "icons" : {
-    "64": "images/icon.png",
-    "32": "images/icon.png",
-    "16": "images/icon.png"
+    "64": "skin/icon.png",
+    "32": "skin/icon.png",
+    "16": "skin/icon.png"
   },
 
   "manifest_version": 2
