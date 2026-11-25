@@ -18,7 +18,7 @@
   "homepage": "https://github.com/stumbo/autoarchive2#readme",
   "overrides": {
     "diff": ">=8.0.4",
-    "serialize-javascript": ">=7.0.5"
+    "serialize-javascript": ">=7.1.4"
   },
   "devDependencies": {
     "@types/bootstrap-notify": "^3.1.35",
